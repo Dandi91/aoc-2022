@@ -11,14 +11,14 @@ enum OpponentPlay {
 }
 
 impl FromStr for OpponentPlay {
-    type Err = ();
+    type Err = String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s {
             "A" => Ok(Self::Rock),
             "B" => Ok(Self::Paper),
             "C" => Ok(Self::Scissors),
-            _ => Err(())
+            _ => Err(format!("Failed to parse {s}"))
         }
     }
 }
@@ -31,14 +31,14 @@ enum YourPlay {
 }
 
 impl FromStr for YourPlay {
-    type Err = ();
+    type Err = String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s {
             "X" => Ok(Self::Rock),
             "Y" => Ok(Self::Paper),
             "Z" => Ok(Self::Scissors),
-            _ => Err(())
+            _ => Err(format!("Failed to parse {s}"))
         }
     }
 }
@@ -51,14 +51,14 @@ enum Outcome {
 }
 
 impl FromStr for Outcome {
-    type Err = ();
+    type Err = String;
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         match s {
             "X" => Ok(Self::Lose),
             "Y" => Ok(Self::Draw),
             "Z" => Ok(Self::Win),
-            _ => Err(())
+            _ => Err(format!("Failed to parse {s}"))
         }
     }
 }
